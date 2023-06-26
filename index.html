@@ -88,36 +88,6 @@
             font-family: fontCustom;
             src: url("font/ConcertOne-Regular.ttf");
         }
-        td.picBox{
-            margin: 20px;
-            background-color: rgba(150, 150, 150, 0.3);
-            vertical-align: top;
-            padding-top: 30px;
-            border: white solid 5px;
-            border-radius: 40px;
-            transition-duration: 300ms;
-            color: rgba(0, 0, 0, 0.7);
-        }
-        td.picBox:hover{
-            background-color: rgba(0, 0, 0, 0.7);
-            transition-duration: 300ms;
-            border-radius: 20px;
-            color: white;
-        }
-        img.picInBox{
-            border-radius: 40px;
-            text-align: center;
-            transition-duration: 300ms;
-        }
-        td.picBox:hover .picInBox{
-            scale: 1.05;
-            transition-duration: 300ms;
-            border-radius: 10px;
-        }
-        .textDecription{
-            padding-left: 30px;
-            font-size: 20px;
-        }
         .buttonDetail{
             width: 120px;
             height: 50px;
@@ -164,28 +134,6 @@
     </div>
 </div>
 <script>
-    let arr = [
-        // 'img/JP_Arashiyama/0.png',
-        // 'img/JP_Biwan/0.png',
-        // 'img/JP_Kabukicho/0.png',
-        // 'img/JP_Kinkakuji/0.png',
-        // 'img/JP_Okinawa/0.png',
-        // 'img/JP_Osaka/0.png',
-        // 'img/JP_Tokyo/0.png',
-        // 'img/JP_Universal/0.png',
-
-    ];
-    let arrDescription = [
-        // ["Nation : Japan", "Arashiyama"],
-        // ["Nation : Japan", "Biwan Lake"],
-        // ["Nation : Japan", "Kabukicho"],
-        // ["Nation : Japan", "Kinkakuji"],
-        // ["Nation : Japan", "Okinawa"],
-        // ["Nation : Japan", "Osaka"],
-        // ["Nation : Japan", "Tokyo"],
-        // ["Nation : Japan", "Universal"],
-
-    ];
     let backGroundButtonDetail = [
                                     ["Japan", "Korea", "China", "VietNam"],
                                     ["Render Project", "Demo App"],
@@ -221,36 +169,6 @@ document.getElementById("backGroundButton").innerHTML = data;
         document.getElementById("buttonDetail" + i).innerHTML = dataDetail;
     }
 }
-function tablePicture(){
-    let width = 400;
-    let height = 350;
-    let data = "";
-    for (let i = 0; i < arr.length; i++){
-        if (i%4 == 0){
-            data += `<tr>`;
-        }
-
-        data += `<td class="picBox"">
-                    <table style="height: ${height}px;width: 100%">
-                        <tr><td style="vertical-align: top"><img class="picInBox" src="${arr[i]}" width="${width}px"></td></tr>
-                        <tr style="vertical-align: bottom"><td style="vertical-align: bottom; text-align: left"><p id="pictureDescription-${i}" style="font-family: fontCustom, sans-serif" class="textDecription"></p></td></tr>
-                    </table>
-                 </td>`;
-
-        if (i%4 == 3 || i == arr.length - 1){
-            data += `</tr>`;
-        }
-    }
-    document.getElementById("tablePicture").innerHTML = data;
-
-    for (let i = 0; i < arrDescription.length; i++){
-        let dataDes = "";
-        for (let j = 0; j < arrDescription[i].length; j++){
-            dataDes += "- " + arrDescription[i][j] + "<br>";
-        }
-        document.getElementById("pictureDescription-" + i).innerHTML = dataDes;
-    }
-}
 function detailButton(boo, classButton){
     let elementButton = document.getElementsByClassName(classButton);
     if (boo){
@@ -264,7 +182,6 @@ function detailButton(boo, classButton){
     }
 }
 backGroundButton();
-tablePicture();
 
 </script>
 </body>
